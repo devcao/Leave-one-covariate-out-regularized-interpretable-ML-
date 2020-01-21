@@ -62,7 +62,7 @@ power.loco.test = function(n, p, beta, rho,
   obj = (lapply(1:iter, power.loco.engine, 
                        n = n, p = p, beta = beta, rho = rho,
                        B = B, whichCov = whichCov, betaNULL = betaNULL))
-  pval = unlist(lapply(obj, function(obj){obj$pval}))
+  pval = unlist(lapply(obj, function(obj){obj$loco_obj$pval}))
   power = c()
   power[1] = mean(pval <= 0.2) 
   power[2] = mean(pval <= 0.1)
